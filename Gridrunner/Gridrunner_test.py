@@ -21,20 +21,22 @@ poweruppos = None
 
 class Player(GameObject):
 
+    # Global constants
     STATE_FREE = 0
     STATE_HUNTING = 1
 
+    # List of all player objects
     players = []
-
+    
+    # Player global variables
     COLLECTABLE = False
-
     MAX_POWER = 10
 
     def __init__(self, transform : Transform2D, grid : Grid, altLabel : str):
-        self.grid = grid
-        self.state = Player.STATE_FREE
-        self.altLabel = altLabel
-        self.powerLevel = 0
+        self.grid = grid                    # Context grid
+        self.state = Player.STATE_FREE      # Currently not powered up
+        self.altLabel = altLabel            # Label change when powering up
+        self.powerLevel = 0                 # Timer for power up
         super().__init__(transform)
 
         self.grid.NewObject(self)
@@ -68,7 +70,7 @@ class Player(GameObject):
         
     def Eat(self, other : 'GameObject'):
         if self.state > other.state:
-            print(self.label, "ate", other.label)
+            # print(self.label, "ate", other.label)
             other.grid.DelObject(other)
             if other.COLLECTABLE:
                 self.PowerUp()
@@ -91,6 +93,7 @@ class Player(GameObject):
 
 class PowerUp(GameObject):
 
+    # Powerup global variables
     COLLECTABLE = True
     state = -1
 
@@ -104,6 +107,15 @@ class BotProcess(ProcessMethod):
 
     def GetGridAction(self, grid):
         """
+        Communicate with user process
+
+        input:
+        grid_height grid_breadth
+        each of the next (grid_height) lines will have (grid_breadth) characters separated by space
+
+        output:
+        dir
+
         Return convention:
         0 : Right
         1 : Down
@@ -119,6 +131,7 @@ class BotProcess(ProcessMethod):
 
 class Game(PyGameInstance):
 
+    # Colours
     WALL_COL = (200,10,10) 
     P1_COL = (0,100,0)
     P1_HUNGRY_COL = (0,200,0) 
@@ -132,6 +145,7 @@ class Game(PyGameInstance):
                     PLAYER2_h : P2_HUNGRY_COL,
                     POWERUP : ORB_COL}
 
+    # Conditional directories
     OBJ_SCALE_DIR = {PLAYER1_f : 0.4,
                     PLAYER1_h : 0.5,
                     PLAYER2_f : 0.4,
@@ -146,7 +160,9 @@ class Game(PyGameInstance):
 
     def Run(self, grid, p1, p2, orb):
 
+        # Initialization
         lastDir = -1
+        botAction = self.bot.GetGridAction(p2.grid)
         
         while self.isPlaying():
             
@@ -178,11 +194,12 @@ class Game(PyGameInstance):
                         else:
                             orb = PowerUp(Transform2D(Vector2(poweruppos), 0, POWERUP), grid)
 
-                botAction = self.bot.GetGridAction(p2.grid)
                 p2.Move(90*botAction)        # Note that bot action is first
 
                 p1.Move(lastDir) 
                 lastDir = -1
+                
+                botAction = self.bot.GetGridAction(p2.grid)  # Update bot action
             
             self.initFrame()
 

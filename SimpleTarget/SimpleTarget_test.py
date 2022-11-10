@@ -11,19 +11,25 @@ class CannonBall:
     balls = []
 
     def __init__(self, position, rotation, speed, radius = 12):
-        self.position = position
-        self.rotation = rotation
-        self.speed = speed
-        self.radius = radius
+        """
+        An object that moves and hits stuff 
+        """
+        self.position = position    # start position
+        self.rotation = rotation    # Start rotation
+        self.speed = speed          # Speed of ball
+        self.radius = radius        # Radius of ball
 
         CannonBall.balls.append(self)
+
+    def __del__(self):
+        CannonBall.balls.remove(self)
 
     def Update(self, dt):
         self.position = (Vector2(self.position) + Vector2.PolarConstructorDeg(self.speed, self.rotation) * dt).asTuple()
         CannonBall.OutBound(self)
 
     def Draw(self, screen):
-        pygame.draw.circle(screen, (50,10,10), self.position, self.radius)
+        pygame.draw.circle(screen, (50,20,20), self.position, self.radius)
 
     def CheckContact(self, target : tuple) -> bool:
         return (Vector2(target) - Vector2(self.position)).magnitude < self.radius
@@ -47,14 +53,15 @@ class CannonBall:
 class Cannon:
 
     def __init__(self, position, girth = 15, length = 30, timeFrame = 4):
-        self.position = position
-        self.rotation = 0
-        self.girth = girth
-        self.length = length
-        self.timeFrame = timeFrame
+        self.position = position    # Hinge position
+        self.rotation = 0           # Current facing angle
+        self.girth = girth          # Width of cannon
+        self.length = length        # Length of cannon
+        self.timeFrame = timeFrame  # Rate of fire
 
-        self.processMethod = ProcessMethod(sys.argv[1:])
+        self.processMethod = ProcessMethod(sys.argv[1:])  # Child process
 
+    # Look at target
     def Turn(self, target : tuple):
         s = str(self.position[0]) + " " + str(self.position[1]) + "\n" + str(target[0]) + " " + str(target[1]) + "\n"
         

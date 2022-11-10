@@ -7,7 +7,18 @@ import sys
 proc = None
 
 def processMethod(alpha, beta, l1, l2, rx, ry, minAngle, maxAngle):
-    
+    """
+    Communicate with user process.
+    input:
+        alpha beta
+        l1 l2
+        rx ry
+        minAngle maxAngle
+    output:
+        new_alpha new_beta
+
+    all angles in radian
+    """ 
     proc.stdin.write(str(alpha) + " " + str(beta) + "\n" 
                     + str(l1) + " " + str(l2) + "\n" 
                     + str(rx) + " " + str(ry) + "\n" 

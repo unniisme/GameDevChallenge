@@ -14,13 +14,17 @@ class Player(GameObject):
     players = []
 
     def __init__(self, transform : Transform2D, grid : Grid):
-        self.grid = grid
-        self.health = 100
+        """
+        Player object
+        """
+        self.grid = grid        # Embedded grid
+        self.health = 100       # Health
         super().__init__(transform)
 
         self.grid.NewObject(self)
         Player.players.append(self)
 
+    # Move one cell in the given direction
     def Move(self, direction : float):
         nextCell = self.grid.CellInDirection(self.transform.position.asTuple(), direction)       
 
@@ -45,9 +49,17 @@ class Player(GameObject):
 
     def CheckAlive(self):
         return self.health > 0
+
+class Observer(ProcessMethod):
+
+    def IsObserving(self, grid : Grid) -> bool:
+        s = str(grid.height) + " " + str(grid.breadth) + "\n"
+        s += str(grid)
+        return bool(int(self(s)))
         
 class Game(PyGameInstance):
 
+    # Colours
     WALL_COL = (200,10,10) 
 
     P1_COL = [0, 200, 0]
@@ -56,6 +68,7 @@ class Game(PyGameInstance):
     OBJ_COL_DIR = {PLAYER1 : P1_COL,
                     PLAYER2 : P2_COL}
 
+    # Conditional dictionaries
     MOVE_DIR_P1 = {pygame.K_RIGHT : Direction.RIGHT,
                 pygame.K_LEFT : Direction.LEFT,
                 pygame.K_DOWN : Direction.UP,
@@ -66,14 +79,14 @@ class Game(PyGameInstance):
                 pygame.K_s : Direction.UP,
                 pygame.K_w : Direction.DOWN}
 
-    deathRate = 0.2
+    deathRate = 0.2     # rate of decrease of health
 
     def Run(self, p1, p2):
 
         while self.isPlaying():
 
-            Game.P1_COL[1] = 2*p1.health
-            Game.P2_COL[2] = 2*p2.health
+            Game.P1_COL[1] = 2*p1.health    # Seeker colour fade
+            Game.P2_COL[2] = 2*p2.health    # Hider colour fade
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -122,14 +135,7 @@ class Game(PyGameInstance):
 
             self.endFrame()
         
-        return True
-
-class Observer(ProcessMethod):
-
-    def IsObserving(self, grid : Grid) -> bool:
-        s = str(grid.height) + " " + str(grid.breadth) + "\n"
-        s += str(grid)
-        return bool(int(self(s)))
+        return False
 
 
 if __name__ == '__main__':
