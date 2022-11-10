@@ -47,6 +47,9 @@ def game():
     # Initialization variables
     arm1 = 100
     arm2 = 100
+    minAngle = -np.pi*4/5
+    maxAngle = np.pi*4/5
+    
     alpha = 0
     beta = 0
  
@@ -67,7 +70,7 @@ def game():
                 return
 
         # User process
-        alpha, beta = processMethod(alpha, beta, arm1, arm2, R[0], R[1], -np.pi*4/5, np.pi*4/5)        
+        alpha, beta = processMethod(alpha, beta, arm1, arm2, R[0], R[1], minAngle, maxAngle)        
 
         # Caluclations
         OP = arm1*np.array([np.cos(alpha),np.sin(alpha)])

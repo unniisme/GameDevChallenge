@@ -100,4 +100,6 @@ output
 Explanation: \
 a can see b
 
-It is to be noted that these cases are not going to be evaluated based on exact accuracy. Say if you feel like test case 4 should be 0, go for it, we'll simulate it in game with bigger testcases and visually see how it works.
+It is to be noted that these cases are not going to be evaluated based on exact accuracy. Say if you feel like test case 3 should be 1, go for it, we'll simulate it in game with bigger testcases and visually see how it works.
+
+Read more about the game in HideSeek.md

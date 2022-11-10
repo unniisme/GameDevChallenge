@@ -59,7 +59,7 @@ output
 0
 ```
 Explanation: \
-Best move a can take is to move to the right towards the orb.
+Best move the bot can take is to move to the right towards the orb.
 
 2.
 
@@ -95,6 +95,28 @@ output
 1
 ```
 Explanation: \
-This is a slightly harder case, the human player will probably eat the orb in the next move, which will leave the bot trapped if it tries to move towards the orb. Thus the ideal action is to move downwards.
+This is a slightly trickier case, the human player will probably eat the orb in the next move, which will leave the bot trapped if it tries to move towards the orb. Thus the ideal action is to move downwards.
 
-Yet again, this is a very open ended problem. The example testcases above do not represent the only idea solutions.
+4.
+
+Input
+```
+5 5
+0 0 0 0 0
+a 0 B 0 0
+0 0 1 1 0
+0 0 1 1 0
+0 0 1 1 0
+```
+output
+```
+2
+```
+Explanation: \
+The bot is currently powered up, so best move is to try and eat the player.
+
+
+Yet again, this is a very open ended problem. The example testcases above do not represent the ideal solutions, in fact there may not be an ideal solution. A good solution to this problem is an AI that can beat the human player most of the time.
+
+Tip: \
+Nothing is preventing you from saving information in the user script. While it is not necessery to do this, it can lead to some really useful use cases.

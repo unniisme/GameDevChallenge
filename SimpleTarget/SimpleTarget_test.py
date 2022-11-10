@@ -126,8 +126,10 @@ def game():
 
 
 if __name__ == '__main__':
-    
+
+    startTime = pygame.time.get_ticks() 
     game()
+    print("You survived for", (pygame.time.get_ticks() - startTime)//1000, "Seconds")
 
 
 
