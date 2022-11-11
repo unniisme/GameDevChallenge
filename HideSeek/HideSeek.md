@@ -15,13 +15,13 @@ Whichever turns fully black first looses.
 
 To run:
 ```
-$ python HideSeek_test.py [solution_executable]
+$ python3 HideSeek_test.py [solution_executable]
 ```
 To change grid,
 ```
-$ python HideSeek_test.py [solution_executable] --file=[path to grid]
+$ python3 HideSeek_test.py [solution_executable] --file=[path to grid]
 ```
 For example, to play on grid/grid2, using the dummy solution,
 ```
-$ python HideSeek_test.py python dummy.py --file=grids/grid2
+$ python3 HideSeek_test.py python3 dummy.py --file=grids/grid2
 ```

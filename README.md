@@ -2,14 +2,19 @@
 A set of simple game design problems that can be solved in any language.
 
 You do require python, and numpy and pygame modules installed to run the test cases though.
-This repo assumes you're in some linux distro.
-Pre-requisites installations:
+Pre-requisites installations, **linux**:
 ```
-$ sudo apt install python
-$ sudo apt install python-pip
-$ pip install numpy
-$ pip install pygame
+$ sudo apt install python3
+$ sudo apt install python3-pip
+$ pip3 install numpy
+$ pip3 install pygame
 ```
+
+**windows**
+Refer to WSL.md
+
+**Any other OS**
+If you're using anything else I assume you know what you're doing 
 
 The challenge directory contains 4 questions in the following order of increasing difficulty
 1. SimpleTarget
@@ -22,18 +27,18 @@ User solution has to be an executable that communicates via stdin and stdout, th
 
 You can run the test file with your user solution using the following format:
 ```
-$ python [challenge name]_test.py solution_executable
+$ python3 [challenge name]_test.py solution_executable
 ```
 
-for example, if your solution is a python file called soln1.py, it can be executed using
+for example, if your solution is a python3 file called soln1.py, it can be executed using
 ```
-$ python [challenge name]_test.py python soln1.py
+$ python3 [challenge name]_test.py python3 soln1.py
 ```
 
 If it is a c or c++ file, first compile it into an executable, then execute it.
 ```
 $ g++ soln1.c++ -o soln1
-$ python [challenge name]_test.py ./soln1
+$ python3 [challenge name]_test.py ./soln1
 ```
 
 Any other languages can be compiled in a similar format.
@@ -42,5 +47,5 @@ The source codes to all the test games are in the directory as well. It will not
 
 For more details you can contact the YACC game dev heads.
 
-Oh and I was high on life while writing a lot of this code so if you find any bugs ping me \
-    -J
+Oh and I was high on life problems while writing a lot of this code so if you find any bugs ping me \
+    -Jyo

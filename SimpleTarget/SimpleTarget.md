@@ -7,9 +7,9 @@ The player doesn't win, much like life. Your score is printed though. \
 
 To run:
 ```
-$ python SimpleTarget_test.py [solution_executable]
+$ python3 SimpleTarget_test.py [solution_executable]
 ```
 For example, to play using the dummy solution,
 ```
-$ python SimpleTarget_test.py python dummy.py
+$ python3 SimpleTarget_test.py python3 dummy.py
 ```
