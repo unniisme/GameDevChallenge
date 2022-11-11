@@ -1,6 +1,16 @@
 # GameDevChallenge
 A set of simple game design problems that can be solved in any language.
 
+You do require python, and numpy and pygame modules installed to run the test cases though.
+This repo assumes you're in some linux distro.
+Pre-requisites installations:
+```
+$ sudo apt install python
+$ sudo apt install python-pip
+$ pip install numpy
+$ pip install pygame
+```
+
 The challenge directory contains 4 questions in the following order of increasing difficulty
 1. SimpleTarget
 2. 2limbIK
