@@ -17,7 +17,7 @@ def processMethod(alpha, beta, l1, l2, rx, ry, minAngle, maxAngle):
     output:
         new_alpha new_beta
 
-    all angles in radian
+    all angles in degrees
     """ 
     proc.stdin.write(str(alpha) + " " + str(beta) + "\n" 
                     + str(l1) + " " + str(l2) + "\n" 
@@ -47,8 +47,8 @@ def game():
     # Initialization variables
     arm1 = 100
     arm2 = 100
-    minAngle = -np.pi*4/5
-    maxAngle = np.pi*4/5
+    minAngle = -170
+    maxAngle = 170
     
     alpha = 0
     beta = 0
@@ -73,8 +73,8 @@ def game():
         alpha, beta = processMethod(alpha, beta, arm1, arm2, R[0], R[1], minAngle, maxAngle)        
 
         # Caluclations
-        OP = arm1*np.array([np.cos(alpha),np.sin(alpha)])
-        PQ = arm2*np.array([np.cos(beta), np.sin(beta)])
+        OP = arm1*np.array([np.cos(np.radians(alpha)),np.sin(np.radians(alpha))])
+        PQ = arm2*np.array([np.cos(np.radians(beta)),np.sin(np.radians(beta))])
         OQ = OP+PQ
 
         # Pygame display
