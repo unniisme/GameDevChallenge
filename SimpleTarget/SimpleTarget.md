@@ -1,5 +1,5 @@
 # Simple target
-A simple target about dodging the bullets.
+A simple game about dodging the bullets.
 
 The cannon will follow the player and shoot at them at regular intervels. \
 The player loses if they get shot.

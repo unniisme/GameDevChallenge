@@ -24,6 +24,7 @@ The challenge directory contains 4 questions in the following order of increasin
 
 Each problem statement involves a [challenge name]_test.py file which will embed the user solution to the file and simulate a game environment. \
 User solution has to be an executable that communicates via stdin and stdout, the specifications of which will be provided with the problem statement. Do note that the solution file has to be in a while-True loop so that it can be queried indefinitely.
+More details about the game and the problem statement are each directory.
 
 You can run the test file with your user solution using the following format:
 ```
