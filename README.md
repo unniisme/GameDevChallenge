@@ -10,11 +10,13 @@ $ pip3 install numpy
 $ pip3 install pygame
 ```
 
-**windows**
+**windows** \
 Refer to WSL.md
 
-**Any other OS**
+**Any other OS** \
 If you're using anything else I assume you know what you're doing 
+
+--- 
 
 The challenge directory contains 4 questions in the following order of increasing difficulty
 1. SimpleTarget
