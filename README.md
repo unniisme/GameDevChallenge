@@ -46,6 +46,8 @@ $ python3 [challenge name]_test.py ./soln1
 
 Any other languages can be compiled in a similar format.
 
+---
+
 The source codes to all the test games are in the directory as well. It will not help you much to solve the problem statements as the problem statements are independant of the actual implementation of the games, but feel free to tweak around.
 
 For more details you can contact the YACC game dev heads.
